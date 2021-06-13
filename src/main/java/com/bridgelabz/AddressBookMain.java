@@ -17,7 +17,7 @@ public class AddressBookMain {
         while (loop) {
             ContactListmethods method = new ContactListmethods();
             //Contacts contact = new Contacts();
-            System.out.println("Mention 1. To enter new contact: //2.  To" +
+            System.out.println("Mention 1. To enter new contact: 2. To edit contacts: 3. To" +
                     " Stop:");
             System.out.println("Continue..");
             int choice = sc.nextInt();
@@ -31,7 +31,10 @@ public class AddressBookMain {
                         method.toaddNew(contactList);
                     }
                     break;
-                case 2: loop = false;
+                case 2:
+                    method.toeditContact(contactList);
+                    break;
+                case 3: loop = false;
                     break;
             }
         }
