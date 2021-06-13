@@ -84,5 +84,19 @@ public class ContactListmethods {
       System.out.println("Invalid");
    }
 
+   //Delete contact through console
+   public void delete(ArrayList<Contacts> contactList) {
+      System.out.println("To delete contact enter first name of the contact");
+      System.out.println("Continue deleting..");
+      for (Contacts list : contactList) {
+         if (sc.next().equals(list.getFirstName())) {
+            contactList.remove(list);
+            System.out.println("Deleted");
+         } else {
+            System.out.println("Invalid");
+         }
+      }
+   }
+
 }
 
