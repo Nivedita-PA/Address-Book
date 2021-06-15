@@ -48,8 +48,9 @@ public class ContactListmethods {
    public void toeditContact(ArrayList<Contacts> contactList) {
 
       System.out.println("To edit contact enter the first name of the contact");
-      for (Contacts list : contactList) {
-         if (sc.next().equals(list.getFirstName())) {
+      String name = sc.next();
+         for (Contacts list : contactList) {
+          if (name.equals(list.getFirstName())) {
             System.out.println("Continue editing...");
             System.out.println("Enter first name: ");
             String firstName = sc.nextLine();
@@ -87,16 +88,16 @@ public class ContactListmethods {
    //Delete contact through console
    public void delete(ArrayList<Contacts> contactList) {
       System.out.println("To delete contact enter first name of the contact");
+      String name = sc.next();
       System.out.println("Continue deleting..");
       for (Contacts list : contactList) {
-         if (sc.next().equals(list.getFirstName())) {
+         if (name.equals(list.getFirstName())) {
             contactList.remove(list);
             System.out.println("Deleted");
-         } else {
-            System.out.println("Invalid");
          }
-      }
+      }System.out.println("Invalid");
    }
-
 }
+
+
 
