@@ -1,103 +1,88 @@
 package com.bridgelabz;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ContactListmethods {
+public class ContactListmethods<contacts> {
 
-
+    Contacts contacts;
     Scanner sc = new Scanner(System.in);
 
     //method for adding contacts to the list
-     public void toaddNew(ArrayList<Contacts> contactList){
+    public Contacts toaddNew() {
 
-         Contacts contacts = new Contacts();
+        contacts = new Contacts();
+        System.out.println("To enter new contacts:");
+        System.out.println("Enter first name: ");
+        String firstName = sc.nextLine();
+        contacts.setFirstName(firstName);
+        System.out.println("Enter last name: ");
+        String lastName = sc.nextLine();
+        contacts.setLastName(lastName);
+        System.out.println("Enter address: ");
+        String address = sc.nextLine();
+        contacts.setAddress(address);
+        System.out.println("Enter city: ");
+        String city = sc.nextLine();
+        contacts.setCity(city);
+        System.out.println("Enter state: ");
+        String state = sc.nextLine();
+        contacts.setState(state);
+        System.out.println("Enter zip code: ");
+        String zipcode = sc.nextLine();
+        contacts.setZipCode(zipcode);
+        System.out.println("Enter phone number: ");
+        String phoneNumber = sc.nextLine();
+        contacts.setPhoneNumber(phoneNumber);
+        System.out.println("Enter email: ");
+        String email = sc.nextLine();
+        contacts.setEmail(email);
 
-            System.out.println("To enter new contacts:");
-            System.out.println("Enter first name: ");
-            String firstName = sc.nextLine();
-            contacts.setFirstName(firstName);
-            System.out.println("Enter last name: ");
-            String lastName = sc.nextLine();
-            contacts.setLastName(lastName);
-            System.out.println("Enter address: ");
-            String address = sc.nextLine();
-            contacts.setAddress(address);
-            System.out.println("Enter city: ");
-            String city = sc.nextLine();
-            contacts.setCity(city);
-            System.out.println("Enter state: ");
-            String state = sc.nextLine();
-            contacts.setState(state);
-            System.out.println("Enter zip code: ");
-            String zipcode = sc.nextLine();
-            contacts.setZipCode(zipcode);
-            System.out.println("Enter phone number: ");
-            String phoneNumber = sc.nextLine();
-            contacts.setPhoneNumber(phoneNumber);
-            System.out.println("Enter email: ");
-            String email = sc.nextLine();
-            contacts.setEmail(email);
+        //saving to the list one by one
+        System.out.println("Saved new contacts: " + contacts);
+        return contacts;
+    }
 
-            //saving to the list one by one
-            System.out.println("Saved new contacts: " + contacts);
-            contactList.add(contacts);
-        }
+    //Edit contact through console
+    public Contacts toeditContact(Contacts contacts) {
 
-   //Edit contact through console
-   public void toeditContact(ArrayList<Contacts> contactList) {
-
-      System.out.println("To edit contact enter the first name of the contact");
-      String name = sc.next();
-         for (Contacts list : contactList) {
-          if (name.equals(list.getFirstName())) {
+        this.contacts = new Contacts();
+        System.out.println("To edit contact enter the first name of the contact");
+        String name = sc.next();
+        if (name.equals(this.contacts.getFirstName())) {
             System.out.println("Continue editing...");
             System.out.println("Enter first name: ");
+            sc.nextLine();
             String firstName = sc.nextLine();
-            list.setFirstName(firstName);
+            this.contacts.setFirstName(firstName);
             sc.nextLine();
             System.out.println("Enter last name: ");
             String lastName = sc.nextLine();
-            list.setLastName(lastName);
+            this.contacts.setLastName(lastName);
             System.out.println("Enter address: ");
             String address = sc.nextLine();
-            list.setAddress(address);
+            this.contacts.setAddress(address);
             System.out.println("Enter city: ");
             String city = sc.nextLine();
-            list.setCity(city);
+            this.contacts.setCity(city);
             System.out.println("Enter state: ");
             String state = sc.nextLine();
-            list.setState(state);
+            this.contacts.setState(state);
             System.out.println("Enter zip code: ");
             String zipcode = sc.nextLine();
-            list.setZipCode(zipcode);
+            this.contacts.setZipCode(zipcode);
             System.out.println("Enter phone number: ");
             String phoneNumber = sc.nextLine();
-            list.setPhoneNumber(phoneNumber);
+            this.contacts.setPhoneNumber(phoneNumber);
             System.out.println("Enter email: ");
             String email = sc.nextLine();
-            list.setEmail(email);
+            this.contacts.setEmail(email);
 
             //printing result
-            System.out.println("Contact edited: " + "\n" + list);
-         }
-      }
-      System.out.println("Invalid");
-   }
-
-   //Delete contact through console
-   public void delete(ArrayList<Contacts> contactList) {
-      System.out.println("To delete contact enter first name of the contact");
-      String name = sc.next();
-      System.out.println("Continue deleting..");
-      for (Contacts list : contactList) {
-         if (name.equals(list.getFirstName())) {
-            contactList.remove(list);
-            System.out.println("Deleted");
-         }
-      }System.out.println("Invalid");
-   }
+            System.out.println("Contact edited: " + "\n" + this.contacts);
+        } else {
+            System.out.println("Not found!");
+        } return this.contacts;
+    }
 }
-
 
 

@@ -1,15 +1,17 @@
 package com.bridgelabz;
 
+import java.util.Objects;
+
 public class Contacts {
 
-    public String firstName;
-    public String lastName;
-    public String address;
-    public String city;
-    public String state;
-    public String zipCode;
-    public String phoneNumber;
-    public String email;
+    private String firstName;
+    private String lastName;
+    private String address;
+    private String city;
+    private String state;
+    private String zipCode;
+    private String phoneNumber;
+    private String email;
 
 
     public String getFirstName() {
@@ -98,4 +100,16 @@ public class Contacts {
                 + ", state=" + state + ", zipCode=" + zipCode + ", phoneNumber=" + phoneNumber + ", email=" + email + "]";
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Contacts)) return false;
+        Contacts contacts = (Contacts) o;
+        return Objects.equals(firstName, contacts.firstName) && Objects.equals(lastName, contacts.lastName) && Objects.equals(address, contacts.address) && Objects.equals(city, contacts.city) && Objects.equals(state, contacts.state) && Objects.equals(zipCode, contacts.zipCode) && Objects.equals(phoneNumber, contacts.phoneNumber) && Objects.equals(email, contacts.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, address, city, state, zipCode, phoneNumber, email);
+    }
 }
