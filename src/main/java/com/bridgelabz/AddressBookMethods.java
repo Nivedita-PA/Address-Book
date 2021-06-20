@@ -80,6 +80,8 @@ public class AddressBookMethods {
                         Contacts contacts1 =
                                 contactList.stream().filter(contact -> contact.getFirstName().equals(contactName)).findFirst().get();
                         contacts1 = method.toeditContact(contacts1);
+                    }else{
+                        System.out.println("RECORD NOT FOUND!");
                     }
                     break;
 
@@ -87,13 +89,16 @@ public class AddressBookMethods {
                     System.out.println("Enter the name of the address-book for deleting contact:");
                     sc.nextLine();
                     String name2 = sc.nextLine();
-                    System.out.println("To edit contact enter the first name of the contact");
+                    System.out.println("To delete contact enter the first name of the contact");
                     String contactName = sc.next();
                     if(addressBook.containsKey(name2)) {
                         ArrayList<Contacts> contactList = addressBook.get(name2);
                         Contacts contacts1 =
                                 contactList.stream().filter(contact -> contact.getFirstName().equals(contactName)).findFirst().get();
                         contactList.remove(contacts1);
+                        System.out.println("DELETED!");
+                    }else{
+                        System.out.println("RECORD NOT FOUND!");
                     }
                     break;
 

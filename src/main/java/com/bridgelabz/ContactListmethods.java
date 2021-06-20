@@ -46,43 +46,39 @@ public class ContactListmethods<contacts> {
     public Contacts toeditContact(Contacts contacts) {
 
         this.contacts = new Contacts();
-        System.out.println("To edit contact enter the first name of the contact");
-        String name = sc.next();
-        if (name.equals(this.contacts.getFirstName())) {
-            System.out.println("Continue editing...");
-            System.out.println("Enter first name: ");
-            sc.nextLine();
-            String firstName = sc.nextLine();
-            this.contacts.setFirstName(firstName);
-            sc.nextLine();
-            System.out.println("Enter last name: ");
-            String lastName = sc.nextLine();
-            this.contacts.setLastName(lastName);
-            System.out.println("Enter address: ");
-            String address = sc.nextLine();
-            this.contacts.setAddress(address);
-            System.out.println("Enter city: ");
-            String city = sc.nextLine();
-            this.contacts.setCity(city);
-            System.out.println("Enter state: ");
-            String state = sc.nextLine();
-            this.contacts.setState(state);
-            System.out.println("Enter zip code: ");
-            String zipcode = sc.nextLine();
-            this.contacts.setZipCode(zipcode);
-            System.out.println("Enter phone number: ");
-            String phoneNumber = sc.nextLine();
-            this.contacts.setPhoneNumber(phoneNumber);
-            System.out.println("Enter email: ");
-            String email = sc.nextLine();
-            this.contacts.setEmail(email);
+        System.out.println("Continue editing...");
+        System.out.println("Enter first name: ");
+        sc.nextLine();
+        String firstName = sc.nextLine();
+        this.contacts.setFirstName(firstName);
+        sc.nextLine();
+        System.out.println("Enter last name: ");
+        String lastName = sc.nextLine();
+        this.contacts.setLastName(lastName);
+        System.out.println("Enter address: ");
+        String address = sc.nextLine();
+        this.contacts.setAddress(address);
+        System.out.println("Enter city: ");
+        String city = sc.nextLine();
+        this.contacts.setCity(city);
+        System.out.println("Enter state: ");
+        String state = sc.nextLine();
+        this.contacts.setState(state);
+        System.out.println("Enter zip code: ");
+        String zipcode = sc.nextLine();
+        this.contacts.setZipCode(zipcode);
+        System.out.println("Enter phone number: ");
+        String phoneNumber = sc.nextLine();
+        this.contacts.setPhoneNumber(phoneNumber);
+        System.out.println("Enter email: ");
+        String email = sc.nextLine();
+        this.contacts.setEmail(email);
 
-            //printing result
-            System.out.println("Contact edited: " + "\n" + this.contacts);
-        } else {
-            System.out.println("Not found!");
-        } return this.contacts;
-    }
+        //printing result
+        System.out.println("Contact edited: " + "\n" + this.contacts);
+        return this.contacts;
+       }
 }
+
 
 
