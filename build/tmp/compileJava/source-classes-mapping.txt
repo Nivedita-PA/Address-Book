@@ -1,3 +1,5 @@
+com/bridgelabz/SortingFirstName.java
+ com.bridgelabz.SortingFirstName
 com/bridgelabz/Contacts.java
  com.bridgelabz.Contacts
 com/bridgelabz/ContactListmethods.java

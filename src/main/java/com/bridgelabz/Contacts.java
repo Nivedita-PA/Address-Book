@@ -93,23 +93,9 @@ public class Contacts {
         this.email = email;
     }
 
-
     @Override
     public String toString() {
         return "Contacts [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", city=" + city
                 + ", state=" + state + ", zipCode=" + zipCode + ", phoneNumber=" + phoneNumber + ", email=" + email + "]";
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Contacts)) return false;
-        Contacts contacts = (Contacts) o;
-        return Objects.equals(firstName, contacts.firstName) && Objects.equals(lastName, contacts.lastName) && Objects.equals(address, contacts.address) && Objects.equals(city, contacts.city) && Objects.equals(state, contacts.state) && Objects.equals(zipCode, contacts.zipCode) && Objects.equals(phoneNumber, contacts.phoneNumber) && Objects.equals(email, contacts.email);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(firstName, lastName, address, city, state, zipCode, phoneNumber, email);
     }
 }

@@ -1,25 +1,19 @@
 package com.bridgelabz;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
-import java.util.Set;
-
+import java.util.*;
 
 public class AddressBookMethods {
 
     Scanner sc = new Scanner(System.in);
-    ArrayList<Contacts> contactList = new ArrayList<>();
     HashMap<String,ArrayList<Contacts>> addressBook = new HashMap();
 
-    //method for adding contact-list to the addressBook1
-    public void addingAddressBook(HashMap<String, ArrayList<Contacts>> addressBook1) {
+    //method for adding contact-list to the addressBook
+    public void addingAddressBook(HashMap<String, ArrayList<Contacts>> addressBook) {
         sc.nextLine();
         System.out.println("Mention the name of the address-book, don't repeat");
         String addNames = sc.nextLine();
         ArrayList<Contacts> contactList = new ArrayList<>();
             addressBook.put(addNames, contactList);
-
     }
 
     public void displayAddressBook(HashMap<String, ArrayList<Contacts>> addressBook){
@@ -27,7 +21,16 @@ public class AddressBookMethods {
         for(String addNames : contactList){
             System.out.println(addNames + ":" + addressBook.get(addNames));
         }
+    }
 
+    public void sortByName(String addressBookName){
+        List<Contacts> contactsList = addressBook.get(addressBookName);
+        if(contactsList.size() == 0){
+            System.out.println("NO RECORDS FOUND!");
+        }else{
+            contactsList.sort(new SortingFirstName());
+            contactsList.forEach(System.out::println);
+        }
     }
 
     public void displayAddressBookOptions(){
@@ -40,7 +43,8 @@ public class AddressBookMethods {
                     " 3. To Edit Contact in address-book: " + "\n" +
                     " 4. To Delete Contact in address-book: " + "\n" +
                     " 5. To display Address-Book: " + "\n" +
-                    " 6. To Stop:");
+                    " 6. To sort by names in Address-Book: " + "\n" +
+                    " 7. To Stop:");
             System.out.println("Continue..");
             int choice = sc.nextInt();
             switch (choice) {
@@ -106,13 +110,15 @@ public class AddressBookMethods {
                     break;
 
                 case 6:
+                    System.out.println("Enter address-book to sort:");
+                    String addName = sc.nextLine();
+                    sortByName(addName);
+
+                case 7:
                     loop = false;
                     break;
             }
-
         }
-
     }
-
 }
 
