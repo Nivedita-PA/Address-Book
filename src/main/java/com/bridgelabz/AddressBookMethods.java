@@ -68,11 +68,21 @@ public class AddressBookMethods {
     }
 
     public void toSeeNoOfContactsByState(String addressBookName){
-        System.out.println("Enter city name: ");
+        System.out.println("Enter state name: ");
         sc.nextLine();
         String stateName = sc.nextLine();
         List<Contacts> contactsList = addressBook.get(addressBookName);
         Long count = contactsList.stream().filter(person -> person.getState().equalsIgnoreCase(stateName))
+                .count();
+        System.out.println(count);
+    }
+
+    public void toSeeNoOfContactsByCity(String addressBookName){
+        System.out.println("Enter city name: ");
+        sc.nextLine();
+        String cityName = sc.nextLine();
+        List<Contacts> contactsList = addressBook.get(addressBookName);
+        Long count = contactsList.stream().filter(person -> person.getState().equalsIgnoreCase(cityName))
                 .count();
         System.out.println(count);
     }
@@ -92,6 +102,7 @@ public class AddressBookMethods {
                     " 8. To search by city in Address-Book: " + "\n" +
                     " 9. To search by state in Address-Book: " + "\n" +
                     "10. To count by state in Address-Book: " + "\n" +
+                    "10. To count by city in Address-Book: " + "\n" +
                     "11. To Stop:");
             System.out.println("Continue..");
             int choice = sc.nextInt();
@@ -188,6 +199,12 @@ public class AddressBookMethods {
                     break;
 
                 case 11:
+                    System.out.println("Enter address-book to count person by city:");
+                    String addName5 = sc.next();
+                    toSeeNoOfContactsByCity(addName5);
+                    break;
+
+                case 12:
                     loop = false;
                     break;
             }
