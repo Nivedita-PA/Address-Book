@@ -1,6 +1,7 @@
 package com.bridgelabz;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class AddressBookMethods {
 
@@ -21,6 +22,17 @@ public class AddressBookMethods {
         for(String addNames : contactList){
             System.out.println(addNames + ":" + addressBook.get(addNames));
         }
+    }
+
+    public void toCheckDuplicate(String addressBookName){
+        System.out.println("Enter person name:");
+        sc.nextLine();
+        String name = sc.nextLine();
+        List<Contacts> contactsList = addressBook.get(addressBookName);
+        List<Contacts> searchContact = contactsList.stream()
+                .filter(person -> person.getFirstName().equalsIgnoreCase(name))
+                .collect(Collectors.toList());
+        System.out.println(searchContact);
     }
 
     public void sortByName(String addressBookName){
@@ -44,7 +56,8 @@ public class AddressBookMethods {
                     " 4. To Delete Contact in address-book: " + "\n" +
                     " 5. To display Address-Book: " + "\n" +
                     " 6. To sort by names in Address-Book: " + "\n" +
-                    " 7. To Stop:");
+                    " 7. To search duplicate names in Address-Book: " + "\n" +
+                    " 8. To Stop:");
             System.out.println("Continue..");
             int choice = sc.nextInt();
             switch (choice) {
@@ -116,6 +129,12 @@ public class AddressBookMethods {
                     break;
 
                 case 7:
+                    System.out.println("Enter address-book to check-duplicate:");
+                    String addName1 = sc.next();
+                    toCheckDuplicate(addName1);
+                    break;
+
+                case 8:
                     loop = false;
                     break;
             }
