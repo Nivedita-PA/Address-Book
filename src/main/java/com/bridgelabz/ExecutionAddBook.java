@@ -8,6 +8,11 @@ public class ExecutionAddBook {
         System.out.println("--------------Welcome to the AddressBook program----------------");
         System.out.println("                                                                  ");
         AddressBookMethods main = new AddressBookMethods();
-        main.displayAddressBookOptions();
+        try {
+            main.displayAddressBookOptions();
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 }

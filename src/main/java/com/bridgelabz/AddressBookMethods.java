@@ -25,7 +25,7 @@ public class AddressBookMethods {
 
     public void sortByName(String addressBookName){
         List<Contacts> contactsList = addressBook.get(addressBookName);
-        if(contactsList.size() == 0){
+        if(contactsList.size() < 1){
             System.out.println("NO RECORDS FOUND!");
         }else{
             contactsList.sort(new SortingFirstName());
@@ -111,8 +111,9 @@ public class AddressBookMethods {
 
                 case 6:
                     System.out.println("Enter address-book to sort:");
-                    String addName = sc.nextLine();
+                    String addName = sc.next();
                     sortByName(addName);
+                    break;
 
                 case 7:
                     loop = false;
