@@ -45,6 +45,17 @@ public class AddressBookMethods {
         }
     }
 
+    public void toFindByCity(String addressBookName){
+        System.out.println("Enter city name: ");
+        sc.nextLine();
+        String city = sc.nextLine();
+        List<Contacts> contactsList = addressBook.get(addressBookName);
+        List<Contacts> searchContact = contactsList.stream()
+                .filter(person -> person.getCity().equalsIgnoreCase(city))
+                .collect(Collectors.toList());
+        System.out.println(searchContact);
+    }
+
     public void displayAddressBookOptions(){
         boolean loop = true;
         while(loop) {
@@ -57,7 +68,8 @@ public class AddressBookMethods {
                     " 5. To display Address-Book: " + "\n" +
                     " 6. To sort by names in Address-Book: " + "\n" +
                     " 7. To search duplicate names in Address-Book: " + "\n" +
-                    " 8. To Stop:");
+                    " 8. To search by city in Address-Book: " + "\n" +
+                    " 9. To Stop:");
             System.out.println("Continue..");
             int choice = sc.nextInt();
             switch (choice) {
@@ -135,6 +147,12 @@ public class AddressBookMethods {
                     break;
 
                 case 8:
+                    System.out.println("Enter address-book to person by city:");
+                    String addName2 = sc.next();
+                    toFindByCity(addName2);
+                    break;
+
+                case 9:
                     loop = false;
                     break;
             }
