@@ -56,6 +56,17 @@ public class AddressBookMethods {
         System.out.println(searchContact);
     }
 
+    public void toViewPersonByState(String addressBookName){
+        System.out.println("Enter state name: ");
+        sc.nextLine();
+        String state = sc.nextLine();
+        List<Contacts> contactsList = addressBook.get(addressBookName);
+        List<Contacts> sortContact = contactsList.stream()
+                .filter(person -> person.getState().equalsIgnoreCase(state))
+                .collect(Collectors.toList());
+        System.out.println(sortContact);
+    }
+
     public void displayAddressBookOptions(){
         boolean loop = true;
         while(loop) {
@@ -69,7 +80,8 @@ public class AddressBookMethods {
                     " 6. To sort by names in Address-Book: " + "\n" +
                     " 7. To search duplicate names in Address-Book: " + "\n" +
                     " 8. To search by city in Address-Book: " + "\n" +
-                    " 9. To Stop:");
+                    " 9. To search by city in Address-Book: " + "\n" +
+                    "10. To Stop:");
             System.out.println("Continue..");
             int choice = sc.nextInt();
             switch (choice) {
@@ -147,12 +159,18 @@ public class AddressBookMethods {
                     break;
 
                 case 8:
-                    System.out.println("Enter address-book to person by city:");
+                    System.out.println("Enter address-book to search person by city:");
                     String addName2 = sc.next();
                     toFindByCity(addName2);
                     break;
 
                 case 9:
+                    System.out.println("Enter address-book to search person by state:");
+                    String addName3 = sc.next();
+                    toViewPersonByState(addName3);
+                    break;
+
+                case 10:
                     loop = false;
                     break;
             }
