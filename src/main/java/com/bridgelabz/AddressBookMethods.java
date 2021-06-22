@@ -87,6 +87,17 @@ public class AddressBookMethods {
         System.out.println(count);
     }
 
+    public void sortByCity(String addressBookName) {
+        List<Contacts> contactsList = addressBook.get(addressBookName);
+        contactsList.forEach(System.out::println);
+        if (contactsList.size() < 1) {
+            System.out.println("NO RECORDS FOUND!");
+        } else {
+            contactsList.sort(new SortingCity());
+            contactsList.forEach(System.out::println);
+        }
+    }
+
     public void displayAddressBookOptions(){
         boolean loop = true;
         while(loop) {
@@ -103,7 +114,8 @@ public class AddressBookMethods {
                     " 9. To search by state in Address-Book: " + "\n" +
                     "10. To count by state in Address-Book: " + "\n" +
                     "10. To count by city in Address-Book: " + "\n" +
-                    "11. To Stop:");
+                    "11. To sort by city in Address-Book: " + "\n" +
+                    "12. To Stop:");
             System.out.println("Continue..");
             int choice = sc.nextInt();
             switch (choice) {
@@ -205,6 +217,12 @@ public class AddressBookMethods {
                     break;
 
                 case 12:
+                    System.out.println("Enter address-book to sort person by city:");
+                    String addName6 = sc.next();
+                    sortByCity(addName6);
+                    break;
+
+                case 13:
                     loop = false;
                     break;
             }
