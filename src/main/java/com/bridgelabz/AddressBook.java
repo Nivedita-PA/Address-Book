@@ -29,6 +29,7 @@ public class AddressBook {
         addressBook.printData(IOService.FILE_IO);
         addressBook.writeAddressBook(IOService.FILE_IO);
         addressBook.countEntries(IOService.FILE_IO);
+        addressBook.readEmployeePayrollData(IOService.FILE_IO);
 
     }
 
@@ -59,6 +60,11 @@ public class AddressBook {
         }
     }
 
+    public long readEmployeePayrollData(IOService ioService){
+        if(ioService.equals(IOService.FILE_IO))
+            this.contactsList = new AddressBookFileIO().readData();
+        return contactsList.size();
+    }
 
     public void writeAddressBook(IOService ioService) throws IOException {
          if(ioService.equals(IOService.FILE_IO))
@@ -76,6 +82,7 @@ public class AddressBook {
             return new AddressBookFileIO().countEntries();
         return 0;
     }
+
 }
 
 

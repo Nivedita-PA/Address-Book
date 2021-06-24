@@ -27,6 +27,9 @@ public class Contacts {
     public Contacts() {
     }
 
+    public Contacts(String line) {
+    }
+
     public String getFirstName() {
         return firstName;
     }

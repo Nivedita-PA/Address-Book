@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AddressBookFileIO {
@@ -36,5 +37,18 @@ public class AddressBookFileIO {
                     .count();
         }catch (IOException e){ }
         return entries;
+    }
+
+    public List<Contacts> readData(){
+        List<Contacts> contactsList = new ArrayList<>();
+        try{
+            Files.lines(new File(ADD_BOOK_FILE_NAME).toPath())
+                    .map(line->line.trim())
+                    .forEach(line->
+                    contactsList.add(new Contacts(line)));
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        return contactsList;
     }
 }
