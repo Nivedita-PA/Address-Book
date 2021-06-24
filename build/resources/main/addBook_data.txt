@@ -1,0 +1,1 @@
+Contacts [firstName=nivedita, lastName=pal, address=shivnagar, city=allhabad, state=up, zipCode=211006, phoneNumber=377438338, email=npal4661@gmail.com]

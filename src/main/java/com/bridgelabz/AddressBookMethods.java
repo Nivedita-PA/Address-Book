@@ -251,7 +251,7 @@ public class AddressBookMethods {
                     break;
 
                 case 14:
-                    System.out.println("Enter address-book to sort person by state:");
+                    System.out.println("Enter address-book to sort person by zip:");
                     String addName8 = sc.next();
                     sortByZip(addName8);
                     break;

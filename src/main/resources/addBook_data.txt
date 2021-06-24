@@ -1,0 +1,2 @@
+Contacts [firstName=nikki, lastName=pal, address=alld, city=alld, state=up, zipCode=11002, phoneNumber=8282828, email=nik@gmail.com]
+Contacts [firstName=aayushi, lastName=yo, address=katra, city=alld, state=up, zipCode=11111, phoneNumber=222233344, email=aayu@gmail.com]
