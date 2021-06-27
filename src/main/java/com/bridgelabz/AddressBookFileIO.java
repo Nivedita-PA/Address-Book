@@ -9,7 +9,7 @@ import java.util.List;
 
 public class AddressBookFileIO {
 
-    public static String ADD_BOOK_FILE_NAME = "E:\\Address-Book\\src\\main\\resources\\addBook_data.txt";
+    public static String ADD_BOOK_FILE_NAME = "E:\\Address-Book\\src\\main\\resources\\addBook.csv";
 
     public void writeData(List<Contacts> contactsList) {
         StringBuffer newEmpBuffer = new StringBuffer();
