@@ -1,9 +1,7 @@
 package com.bridgelabz;
 
-import com.opencsv.CSVWriter;
 import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
-
 import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -54,8 +52,6 @@ public class AddressBookCsv{
         AddressBookCsv addressBookCsv = new AddressBookCsv();
         addressBookCsv.writeAddressBook();
     }
-
-
-
+    
 }
 
