@@ -57,8 +57,7 @@ public class AddressBookCsv{
    }
 }
 
-    public int readAddBook(){
-        int numOfEntries = 0;
+    public void readAddBook(){
        try (Reader reader = Files.newBufferedReader(Paths.get(FILE_PATH));){
            CsvToBean<ContactsCsv> csvToBean = new CsvToBeanBuilder(reader).withType(ContactsCsv.class)
                    .build();
@@ -75,12 +74,23 @@ public class AddressBookCsv{
                System.out.println("zipCode: " +contactsCsv.getZip());
                System.out.println("-----------------------------------------");
            }
-           Iterable<ContactsCsv> contactsCsvIterable = () -> contactsCsvIterator;
-           numOfEntries = (int) StreamSupport.stream(contactsCsvIterable.spliterator(), false).count();
-           System.out.println(numOfEntries);
        }catch (Exception e){
            e.printStackTrace();
        }
+}
+
+    public int numOFEntries(){
+        int numOfEntries = 0;
+        try (Reader reader = Files.newBufferedReader(Paths.get(FILE_PATH));){
+            CsvToBean<ContactsCsv> csvToBean = new CsvToBeanBuilder(reader).withType(ContactsCsv.class)
+                    .build();
+            Iterator<ContactsCsv> contactsCsvIterator = csvToBean.iterator();
+            Iterable<ContactsCsv> contactsCsvIterable = () -> contactsCsvIterator;
+            numOfEntries = (int) StreamSupport.stream(contactsCsvIterable.spliterator(), false).count();
+            System.out.println(numOfEntries);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return numOfEntries;
     }
 
@@ -88,6 +98,7 @@ public class AddressBookCsv{
         AddressBookCsv addressBookCsv = new AddressBookCsv();
         //addressBookCsv.writeAddressBook();
         addressBookCsv.readAddBook();
+        addressBookCsv.numOFEntries();
     }
     
 }
