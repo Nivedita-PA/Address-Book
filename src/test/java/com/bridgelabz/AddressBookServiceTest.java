@@ -2,8 +2,6 @@ package com.bridgelabz;
 
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.awt.*;
 import java.util.List;
 
 public class AddressBookServiceTest {

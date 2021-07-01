@@ -30,8 +30,8 @@ public class AddressBookDB {
         return contactsList;
     }
 
-    private java.util.List<Contacts> getAddressBookData(ResultSet resultSet) {
-        java.util.List<Contacts> employeePayrollDataList = new ArrayList<>();
+    private List<Contacts> getAddressBookData(ResultSet resultSet) {
+        List<Contacts> contactsList = new ArrayList<>();
         try{
             while(resultSet.next()){
                 String firstName = resultSet.getString("firstName");
@@ -42,13 +42,12 @@ public class AddressBookDB {
                 String zip = resultSet.getString("zipCode");
                 String phoneNumber = resultSet.getString("phone_Number");
                 String email = resultSet.getString("email");
-                employeePayrollDataList.add(new Contacts(firstName,lastname, address, city, state, zip, phoneNumber,
+                contactsList.add(new Contacts(firstName,lastname, address, city, state, zip, phoneNumber,
                         email));
             }
         }catch (SQLException e){
             e.printStackTrace();
         }
-
-        return employeePayrollDataList;
+        return contactsList;
     }
 }
