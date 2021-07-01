@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.bridgelabz.AddressBookServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-07-01T19:28:57" hostname="DELL" time="4.345">
+  <properties/>
+  <testcase name="givenTestShouldReturn_The_Count_Of_Contacts_In_DB" classname="com.bridgelabz.AddressBookServiceTest" time="4.345"/>
+  <system-out><![CDATA[Connecting to database:jdbc:mysql://localhost:3306/addressbook?allowPublicKeyRetrieval=true&useSSL=false
+connection is successful!!!com.mysql.jdbc.JDBC4Connection@de13d22
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,2 @@
+jConnecting to database:jdbc:mysql://localhost:3306/addressbook?allowPublicKeyRetrieval=true&useSSL=false
+Cconnection is successful!!!com.mysql.jdbc.JDBC4Connection@de13d22

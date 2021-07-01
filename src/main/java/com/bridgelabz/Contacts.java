@@ -115,4 +115,12 @@ public class Contacts {
                 + ", state=" + state + ", zipCode=" + zipCode + ", phoneNumber=" + phoneNumber + ", email=" + email + "]";
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Contacts)) return false;
+        Contacts contacts = (Contacts) o;
+        return Objects.equals(firstName, contacts.firstName) && Objects.equals(lastName, contacts.lastName) && Objects.equals(address, contacts.address) && Objects.equals(city, contacts.city) && Objects.equals(state, contacts.state) && Objects.equals(zipCode, contacts.zipCode) && Objects.equals(phoneNumber, contacts.phoneNumber) && Objects.equals(email, contacts.email);
+    }
+
 }

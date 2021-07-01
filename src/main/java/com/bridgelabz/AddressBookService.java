@@ -5,24 +5,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class AddressBook {
+public class AddressBookService {
 
     public enum IOService{
-        FILE_IO, CONSOLE_IO;
+        FILE_IO, DB_IO;
     }
 
     public List<Contacts> contactsList;
 
-    public AddressBook(List<Contacts> contactsList) {
+    public AddressBookService(List<Contacts> contactsList) {
         this.contactsList = contactsList;
     }
 
-    public AddressBook() {
+    public AddressBookService() {
     }
 
     public static void main(String[] args) throws IOException {
         ArrayList<Contacts> contactsList = new ArrayList<>();
-        AddressBook addressBook = new AddressBook(contactsList);
+        AddressBookService addressBook = new AddressBookService(contactsList);
         Scanner consoleInputReader = new Scanner(System.in);
         addressBook.readAddressBook(consoleInputReader);
         addressBook.writeAddressBook(IOService.FILE_IO);
@@ -30,7 +30,12 @@ public class AddressBook {
         addressBook.writeAddressBook(IOService.FILE_IO);
         addressBook.countEntries(IOService.FILE_IO);
         addressBook.readEmployeePayrollData(IOService.FILE_IO);
+    }
 
+    public List<Contacts> readAddressBook(IOService ioService) {
+        if(ioService.equals(IOService.DB_IO))
+            this.contactsList = new AddressBookDB().readData();
+        return this.contactsList;
     }
 
 

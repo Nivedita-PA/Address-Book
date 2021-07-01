@@ -2,6 +2,8 @@ package com.bridgelabz;
 
 import com.opencsv.bean.CsvBindByName;
 
+import java.util.Objects;
+
 public class ContactsCsv {
 
     public ContactsCsv() {
@@ -107,5 +109,18 @@ public class ContactsCsv {
         this.email = email;
     }
 
+    @Override
+    public String toString() {
+        return "ContactsCsv{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zip='" + zip + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 
 }
